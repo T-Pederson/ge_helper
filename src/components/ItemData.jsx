@@ -3,13 +3,13 @@ export default function ItemData({data}) {
   function toggleInfo(e) {
     if (e.target.id === "moreInfoBtn") {
       document.getElementById("moreInfoBtn").className = "hidden";
-      document.getElementById("lessInfoBtn").className = "btn btn-ghost max-w-fit justify-self-center mt-2 col-span-4";
+      document.getElementById("lessInfoBtn").className = "btn btn-ghost bg-gray-300 max-w-fit justify-self-center mt-2 col-span-4";
       document.getElementById("examineTitle").className = "text-right mr-4";
       document.getElementById("examineText").className = "col-span-3";
       document.getElementById("membersTitle").className = "text-right mr-4";
       document.getElementById("membersText").className = "col-span-3";
     } else {
-      document.getElementById("moreInfoBtn").className = "btn btn-ghost max-w-fit justify-self-center mt-2 col-span-4";
+      document.getElementById("moreInfoBtn").className = "btn btn-ghost max-w-fit bg-gray-300 justify-self-center mt-2 col-span-4";
       document.getElementById("lessInfoBtn").className = "hidden";
       document.getElementById("examineTitle").className = "hidden";
       document.getElementById("examineText").className = "hidden";
@@ -49,10 +49,10 @@ export default function ItemData({data}) {
           <p id="examineText" className="hidden">{data["examine"]}</p>
           <p id="membersTitle" className="hidden">Members:</p>
           <p id="membersText" className="hidden">{data["members"]}</p>
-          <button id="moreInfoBtn" className="btn btn-ghost max-w-fit justify-self-center mt-2 col-span-4" onClick={toggleInfo}>More Info</button>
+          <button id="moreInfoBtn" className="btn btn-ghost bg-gray-300 max-w-fit justify-self-center mt-2 col-span-4" onClick={toggleInfo}>More Info</button>
           <button id="lessInfoBtn" className="hidden" onClick={toggleInfo}>Less Info</button>
         </div>
-        <div className="text-black bg-gray-100 text-lg font-bold text-center mx-8 mb-8 h-80">Some chart in the future</div>
+        <div className="bg-white text-black text-lg font-bold text-center mx-8 mb-8 h-80">Some chart in the future</div>
       </div>
     </div>
   )

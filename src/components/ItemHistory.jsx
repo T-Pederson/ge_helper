@@ -4,46 +4,46 @@ export default function ItemHistory() {
     <h1 className="text-center text-xl font-semibold">Item History</h1>
     <div className="menu">
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 1</a>
+        <a>Shark</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 2</a>
+        <a>Raw shark</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 3</a>
+        <a>Rune arrow</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 4</a>
+        <a>Rune platebody</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 5</a>
+        <a>Gilded scimitar</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 6</a>
+        <a>Abyssal whip</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 7</a>
+        <a>Coal</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 8</a>
+        <a>Fire rune</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 9</a>
+        <a>Nature rune</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
       <li className="grid grid-cols-[1fr_auto]">
-        <a>Item 10</a>
+        <a>Zulrah&apos;s scales</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
-      <button className="btn btn-ghost mt-2 hover:bg-red-500 hover:text-black hover:font-bold">Clear History</button>
+      <button className="btn btn-ghost mt-2 bg-gray-300 hover:bg-red-500 hover:text-black hover:font-bold">Clear History</button>
     </div>
     </div>
   );

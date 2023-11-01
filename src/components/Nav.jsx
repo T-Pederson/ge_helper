@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import getData from "./getItemData";
 import logo from "../assets/logo.png";
 
-export default function Navbar(setData) {
+export default function Navbar({setData, emptyData}) {
 
   const [time, setTime] = useState(getTime())
 
@@ -22,6 +23,11 @@ export default function Navbar(setData) {
     }
   }
 
+  function handleItemSearch(e) {
+    setData(emptyData);
+    getData(e.target.value).then((result) => setData(result));
+  }
+
   useEffect(() => {
     const interval = setInterval(() => setTime(getTime()), 1000);
     return () => {
@@ -40,7 +46,7 @@ export default function Navbar(setData) {
           <a className="btn btn-ghost normal-case text-xl">Favorites</a>
           <a className="btn btn-ghost normal-case text-xl">Top 25</a>
           <div className="form-control">
-            <input type="text" placeholder="Search" className="input input-bordered w-96" />
+            <input id="itemSearch" type="text" placeholder="Search" className="input input-bordered w-96 mr-6" onKeyDown={(e) => e.keyCode === 13 && handleItemSearch(e)}/>
           </div>
         </div>
         <div className="flex-none gap-2">
