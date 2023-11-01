@@ -25,7 +25,27 @@ export default function Navbar({setData, emptyData}) {
 
   function handleItemSearch(e) {
     setData(emptyData);
-    getData(e.target.value).then((result) => setData(result));
+    getData(e.target.value).then((result) => {
+      setData(result)
+      let itemHistory = JSON.parse(localStorage.getItem("itemHistory"));
+      if (itemHistory === null) {
+        localStorage.setItem("itemHistory", JSON.stringify([{name: result["name"]}]));
+      } else {
+        let itemInHistory = false
+        for (const item of itemHistory) {
+          if (item.name === result["name"]) {
+            itemInHistory = true;
+          }
+        }
+        if (!itemInHistory) {
+          if (itemHistory.length === 10) {
+            itemHistory.shift();
+          }
+          itemHistory.push({name: result["name"]});
+          localStorage.setItem("itemHistory", JSON.stringify(itemHistory));
+        }
+      }
+    });
   }
 
   useEffect(() => {
@@ -61,9 +81,9 @@ export default function Navbar({setData, emptyData}) {
                 <span className="material-symbols-outlined self-center">account_circle</span>
               </div>
             </label>
-            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-200 rounded-box w-52">
+            <ul tabIndex={0} className="z-[1] p-2 shadow menu menu-sm dropdown-content bg-black rounded-box w-40">
               <li><a>Profile</a></li>
-              <li><a>Settings</a></li>
+              <li><a>Favorites</a></li>
               <li><a>Logout</a></li>
             </ul>
           </div>

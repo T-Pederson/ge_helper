@@ -20,6 +20,7 @@
     }
 
     // Format item name
+    itemName = itemName.trim();
     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1).toLowerCase();
 
     // Get mapping of item that contains examine, id, members, lowalch, highalch, limit, value, icon, and name attributes
