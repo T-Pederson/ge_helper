@@ -33,7 +33,7 @@
         data["name"] = searchedItem["name"];
         data["itemID"] = searchedItem["id"];
         data["examine"] = searchedItem["examine"];
-        data["members"] = searchedItem["members"];
+        searchedItem["members"] ? data["members"] = "Yes" : data["members"] = "No";
         data["lowAlch"] = searchedItem["lowalch"];
         data["highAlch"] = searchedItem["highalch"];
         data["limit"] = searchedItem["limit"];
@@ -50,6 +50,7 @@
 
     // Calculate the individual and total profit of the item
     data["margin"] = (parseInt(prices["high"]) - Math.round(Math.min(5000000, prices["high"] * 0.01))) - parseInt(prices["low"]);
+    data["ROI"] = Math.round(data["margin"] / data["sellPrice"] * 10000) / 100;
 
     // Return data object
     return data;

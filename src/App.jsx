@@ -7,19 +7,27 @@ import getData from './components/getItemData';
 import './App.css';
 
 function App() {
-  const [data, setData] = useState(null);
+  const emptyData = {
+    "name": "",
+    "itemID": 0,
+    "buyPrice": 0,
+    "sellPrice": 0,
+    "margin": 0,
+    "ROI": 0,
+    "limit": 0,
+    "dailyVolume": 0,
+    "highAlch": 0,
+    "lowAlch": 0,
+    "examine": "",
+    "members": "",
+    "icon": ""
+  }
+
+  const [data, setData] = useState(emptyData);
 
   useEffect(() => {
-    let ignore = false;
-    setData(null);
-    getData("Abyssal Whip").then((result) => {
-      if (!ignore) {
-        setData(result);
-      }
-    });
-    return () => {
-      ignore = true;
-    };
+    setData(emptyData);
+    getData("Rune Arrow").then((result) => setData(result))
   }, []);
 
   return (
