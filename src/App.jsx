@@ -15,7 +15,6 @@ function App() {
     "margin": 0,
     "ROI": 0,
     "limit": 0,
-    "dailyVolume": 0,
     "highAlch": 0,
     "lowAlch": 0,
     "examine": "",
@@ -33,7 +32,7 @@ function App() {
   return (
     <div className='grid grid-rows-[auto_1fr_auto] min-h-screen'>
       <div className='mt-2 ml-4 mb-6'>
-        <Navbar></Navbar>
+        <Navbar setData={setData}></Navbar>
       </div>
       <div className='grid grid-cols-[auto_1fr] mx-6'>
         <div className='mr-6'>

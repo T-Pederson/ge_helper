@@ -35,8 +35,8 @@ export default function ItemData({data}) {
           <p>{data["limit"].toLocaleString()}</p>
           <p className="text-right mr-4">Sell Price:</p>
           <p>{data["sellPrice"].toLocaleString()}</p>
-          <p className="text-right mr-4 min-w-max">Volume:</p>
-          <p>???</p>
+          <p className="text-right mr-4">Potential Profit:</p>
+          <p className={data["margin"] > 0 ? "text-lime-500" : "text-red-500"}>{(data["margin"] * data["limit"]).toLocaleString()}</p>
           <p className="text-right mr-4">Margin:</p>
           <p className={data["margin"] > 0 ? "text-lime-500" : "text-red-500"}>{data["margin"].toLocaleString()}</p>
           <p className="text-right mr-4 min-w-max">High Alch:</p>

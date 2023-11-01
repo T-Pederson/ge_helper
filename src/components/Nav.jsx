@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 
-export default function Navbar() {
+export default function Navbar(setData) {
 
   const [time, setTime] = useState(getTime())
 

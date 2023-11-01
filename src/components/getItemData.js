@@ -12,7 +12,6 @@
       "margin": 0,
       "ROI": 0,
       "limit": 0,
-      "dailyVolume": 0,
       "highAlch": 0,
       "lowAlch": 0,
       "examine": "",
