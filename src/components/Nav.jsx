@@ -67,7 +67,7 @@ export default function Navbar({setData, emptyData}) {
           <a className="btn btn-ghost normal-case text-xl">Favorites</a>
           <a className="btn btn-ghost normal-case text-xl">Top 25</a>
           <div className="form-control">
-            <input id="itemSearch" type="text" placeholder="Search" className="input input-bordered w-96 mr-6" onKeyDown={(e) => e.keyCode === 13 && handleItemSearch(e)}/>
+            <input id="itemSearch" type="text" placeholder="Search" className="input input-bordered w-96 mr-6" autoComplete="off" onKeyDown={(e) => e.keyCode === 13 && handleItemSearch(e)}/>
           </div>
         </div>
         <div className="flex-none gap-2">
