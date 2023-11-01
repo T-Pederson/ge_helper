@@ -1,13 +1,21 @@
-export default function ItemHistory() {
+import getData from "./getItemData";
+
+export default function ItemHistory({setData, emptyData}) {
   let listItems;
 
   if (localStorage.getItem("itemHistory") !== null) {
     listItems = JSON.parse(localStorage.getItem("itemHistory")).map(item => 
       <li key={item.name} className="grid grid-cols-[1fr_auto]">
-        <a>{item.name}</a>
+        <a onClick={(e) => handleItemClick(e)}>{item.name}</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
     );
+  }
+
+  function handleItemClick(e) {
+    const clicked = e.target.innerText;
+    setData(emptyData);
+    getData(clicked).then((result) => setData(result));
   }
 
   return (

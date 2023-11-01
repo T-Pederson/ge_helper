@@ -9,7 +9,7 @@ import './App.css';
 function App() {
   const emptyData = {
     "name": "",
-    "itemID": 0,
+    "itemID": "",
     "buyPrice": 0,
     "sellPrice": 0,
     "margin": 0,
@@ -26,7 +26,11 @@ function App() {
 
   useEffect(() => {
     setData(emptyData);
-    getData("Abyssal whip").then((result) => setData(result))
+    if (localStorage.getItem("itemHistory") !== null) {
+      getData(JSON.parse(localStorage.getItem("itemHistory"))[0].name).then((result) => setData(result));
+    } else {
+      getData("Abyssal whip").then((result) => setData(result))
+    }
   }, []);
 
   return (
@@ -36,7 +40,7 @@ function App() {
       </div>
       <div className='grid grid-cols-[auto_1fr] mx-6'>
         <div className='mr-6'>
-          <ItemHistory></ItemHistory>
+          <ItemHistory setData={setData} emptyData={emptyData}></ItemHistory>
         </div>
         <div className='flex flex-col gap-6 mb-6'>
           <div className='col-start-2'>

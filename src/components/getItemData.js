@@ -6,7 +6,7 @@
     // Initialize a data object to store all required item data
     const data = {
       "name": "",
-      "itemID": 0,
+      "itemID": "",
       "buyPrice": 0,
       "sellPrice": 0,
       "margin": 0,
@@ -39,6 +39,12 @@
         data["limit"] = searchedItem["limit"];
         data["icon"] = "https://secure.runescape.com/m=itemdb_oldschool/obj_sprite.gif?id=" + data["itemID"];
       }
+    }
+
+    if (data["name"] === "") {
+      data["name"] = "Item not found";
+      data["icon"] = "https://oldschool.runescape.wiki/images/Elder_Gnome_child_chathead.png?e08f0";
+      return data;
     }
 
     // Get current high and low prices of an item

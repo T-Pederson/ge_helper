@@ -27,6 +27,7 @@ export default function Navbar({setData, emptyData}) {
     setData(emptyData);
     getData(e.target.value).then((result) => {
       setData(result)
+      if (result["name"] === "Item not found") return;
       let itemHistory = JSON.parse(localStorage.getItem("itemHistory"));
       if (itemHistory === null) {
         localStorage.setItem("itemHistory", JSON.stringify([{name: result["name"]}]));
@@ -39,9 +40,9 @@ export default function Navbar({setData, emptyData}) {
         }
         if (!itemInHistory) {
           if (itemHistory.length === 10) {
-            itemHistory.shift();
+            itemHistory.pop();
           }
-          itemHistory.push({name: result["name"]});
+          itemHistory.unshift({name: result["name"]});
           localStorage.setItem("itemHistory", JSON.stringify(itemHistory));
         }
       }
