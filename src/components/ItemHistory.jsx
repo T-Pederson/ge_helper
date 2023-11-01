@@ -1,7 +1,7 @@
 export default function ItemHistory() {
   return (
     <div className="menu bg-base-200 w-56 rounded-box">
-    <h1 className="text-center">Item History</h1>
+    <h1 className="text-center text-xl font-semibold">Item History</h1>
     <div className="menu">
       <li className="grid grid-cols-[1fr_auto]">
         <a>Item 1</a>
@@ -43,6 +43,7 @@ export default function ItemHistory() {
         <a>Item 10</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
+      <button className="btn btn-ghost mt-2 hover:bg-red-500 hover:text-black hover:font-bold">Clear History</button>
     </div>
     </div>
   );
