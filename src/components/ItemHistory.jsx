@@ -43,7 +43,7 @@ export default function ItemHistory() {
         <a>Zulrah&apos;s scales</a>
         <span className="material-symbols-outlined self-center p-1.5 hover:bg-red-500">delete</span>
       </li>
-      <button className="btn btn-ghost mt-2 bg-gray-300 hover:bg-red-500 hover:text-black hover:font-bold">Clear History</button>
+      <button className="btn btn-ghost mt-2 bg-black hover:bg-red-500 hover:text-black hover:font-bold">Clear History</button>
     </div>
     </div>
   );
