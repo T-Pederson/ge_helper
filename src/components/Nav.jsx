@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import getData from "./getItemData";
 import logo from "../assets/logo.png";
 
-export default function Navbar({setData, emptyData}) {
+export default function Navbar({setData, emptyData, setItemHistory}) {
 
   const [time, setTime] = useState(getTime())
 
@@ -31,6 +31,7 @@ export default function Navbar({setData, emptyData}) {
       let itemHistory = JSON.parse(localStorage.getItem("itemHistory"));
       if (itemHistory === null) {
         localStorage.setItem("itemHistory", JSON.stringify([{name: result["name"]}]));
+        setItemHistory([{name: result["name"]}]);
       } else {
         let itemInHistory = false
         for (const item of itemHistory) {
@@ -44,6 +45,7 @@ export default function Navbar({setData, emptyData}) {
           }
           itemHistory.unshift({name: result["name"]});
           localStorage.setItem("itemHistory", JSON.stringify(itemHistory));
+          setItemHistory(itemHistory);
         }
       }
     });

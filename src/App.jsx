@@ -23,11 +23,12 @@ function App() {
   }
 
   const [data, setData] = useState(emptyData);
+  const [itemHistory, setItemHistory] = useState(JSON.parse(localStorage.getItem("itemHistory")));
 
   useEffect(() => {
     setData(emptyData);
-    if (localStorage.getItem("itemHistory") !== null) {
-      getData(JSON.parse(localStorage.getItem("itemHistory"))[0].name).then((result) => setData(result));
+    if (itemHistory !== null) {
+      getData(itemHistory[0].name).then((result) => setData(result));
     } else {
       getData("Abyssal whip").then((result) => setData(result))
     }
@@ -36,11 +37,11 @@ function App() {
   return (
     <div className='grid grid-rows-[auto_1fr_auto] min-h-screen'>
       <div className='mt-2 ml-4 mb-6'>
-        <Navbar setData={setData} emptyData={emptyData}></Navbar>
+        <Navbar setData={setData} emptyData={emptyData} setItemHistory={setItemHistory}></Navbar>
       </div>
       <div className='grid grid-cols-[auto_1fr] mx-6'>
         <div className='mr-6'>
-          <ItemHistory setData={setData} emptyData={emptyData}></ItemHistory>
+          <ItemHistory setData={setData} emptyData={emptyData} itemHistory={itemHistory} setItemHistory={setItemHistory}></ItemHistory>
         </div>
         <div className='flex flex-col gap-6 mb-6'>
           <div className='col-start-2'>
