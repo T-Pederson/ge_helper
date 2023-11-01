@@ -2,7 +2,7 @@ import Navbar from './components/Nav';
 import ItemHistory from './components/ItemHistory';
 import ItemData from './components/ItemData';
 import Footer from './components/Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import getData from './components/getItemData';
 import './App.css';
 
@@ -24,7 +24,10 @@ function App() {
 
   const [data, setData] = useState(emptyData);
 
-  getData("Abyssal whip").then((result) => setData(result))
+  useEffect(() => {
+    setData(emptyData);
+    getData("Abyssal whip").then((result) => setData(result))
+  }, []);
 
   return (
     <div className='grid grid-rows-[auto_1fr_auto] min-h-screen'>
