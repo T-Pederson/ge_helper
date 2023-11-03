@@ -13,6 +13,7 @@ export default function ItemHistory({setData, emptyData, itemHistory, setItemHis
 
   function handleItemClick(e) {
     const clicked = e.target.innerText;
+    document.getElementById("hero").className="hidden";
     setData(emptyData);
     getData(clicked).then((result) => setData(result));
   }

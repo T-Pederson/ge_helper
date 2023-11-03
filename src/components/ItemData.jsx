@@ -19,7 +19,7 @@ export default function ItemData({data}) {
   }
 
   return (
-    <div className="bg-base-200 rounded-box px-8 py-4">
+    <div className="bg-base-200 rounded-box px-8 py-4 max-w-6xl self-center">
       <div className="flex gap-4">
         <img className="w-12" src={data["icon"]} />
         <div className="px-4 sm:px-0">
@@ -27,7 +27,7 @@ export default function ItemData({data}) {
           <p className="mt-1 max-w-2xl text-sm leading-6">Item ID: {data["itemID"]}</p>
         </div>
       </div>
-      <div className="grid grid-cols-[1.5fr_2fr] mt-6 pt-6 border-t border-gray-100">
+      <div className="grid grid-cols-[1fr_1fr] mt-6 pt-6 border-t border-gray-100 whitespace-nowrap">
         <div className="grid grid-cols-4 gap-2 auto-rows-min">
           <p className="text-right mr-4">Buy Price:</p>
           <p>{data["buyPrice"].toLocaleString()}</p>
@@ -35,13 +35,19 @@ export default function ItemData({data}) {
           <p>{data["limit"].toLocaleString()}</p>
           <p className="text-right mr-4">Sell Price:</p>
           <p>{data["sellPrice"].toLocaleString()}</p>
-          <p className="text-right mr-4">Potential Profit:</p>
+          <div className="text-end">
+            <p className="text-right mr-4 tooltip" data-tip="Margin * Buy Limit">Potential Profit:<span className="text-xs italic underline relative bottom-1 left-1">?</span></p>
+          </div>
           <p className={data["margin"] > 0 ? "text-lime-500" : "text-red-500"}>{(data["margin"] * data["limit"]).toLocaleString()}</p>
-          <p className="text-right mr-4">Margin:</p>
+          <div className="text-end">
+            <p className="text-right mr-4 tooltip" data-tip="Includes 1% sale tax">Margin:<span className="text-xs italic underline relative bottom-1 left-1">?</span></p>
+          </div>
           <p className={data["margin"] > 0 ? "text-lime-500" : "text-red-500"}>{data["margin"].toLocaleString()}</p>
           <p className="text-right mr-4 min-w-max">High Alch:</p>
           <p>{data["highAlch"].toLocaleString()} (<span className={data["highAlch"] - data["sellPrice"] > 0 ? "text-lime-500" : "text-red-500"}>{(data["highAlch"] - data["sellPrice"]).toLocaleString()}</span>)</p>
-          <p className="text-right mr-4">ROI:</p>
+          <div className="text-end">
+            <p className="text-right mr-4 tooltip" data-tip="Margin / Sell Price">ROI:<span className="text-xs italic underline relative bottom-1 left-1">?</span></p>
+          </div>
           <p className={data["ROI"] > 0 ? "text-lime-500" : "text-red-500"}>{data["ROI"]}%</p>
           <p className="text-right mr-4">Low Alch:</p>
           <p>{data["lowAlch"].toLocaleString()} (<span className={data["lowAlch"] - data["sellPrice"] > 0 ? "text-lime-500" : "text-red-500"}>{(data["lowAlch"] - data["sellPrice"]).toLocaleString()}</span>)</p>

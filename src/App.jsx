@@ -1,5 +1,6 @@
 import Navbar from './components/Nav';
 import ItemHistory from './components/ItemHistory';
+import Hero from './components/Hero';
 import ItemData from './components/ItemData';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
@@ -44,9 +45,8 @@ function App() {
           <ItemHistory setData={setData} emptyData={emptyData} itemHistory={itemHistory} setItemHistory={setItemHistory}></ItemHistory>
         </div>
         <div className='flex flex-col gap-6 mb-6'>
-          <div className='col-start-2'>
-            <ItemData data={data}></ItemData>
-          </div>
+          <Hero></Hero>
+          <ItemData data={data}></ItemData>
         </div>
       </div>
       <Footer></Footer>
