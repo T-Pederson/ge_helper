@@ -55,7 +55,10 @@
     data["sellPrice"] = prices["low"];
 
     // Calculate the individual and total profit of the item
-    data["margin"] = (parseInt(prices["high"]) - Math.round(Math.min(5000000, prices["high"] * 0.01))) - parseInt(prices["low"]);
+    data["margin"] = parseInt(prices["high"]) - parseInt(prices["low"]);
+    if (parseInt(prices["high"]) >= 100) {
+      data["margin"] -= Math.round(Math.min(5000000, prices["high"] * 0.01))
+    }
     data["ROI"] = Math.round(data["margin"] / data["sellPrice"] * 10000) / 100;
 
     // Return data object
