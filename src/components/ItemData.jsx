@@ -58,7 +58,7 @@ export default function ItemData({data}) {
           <button id="moreInfoBtn" className="btn btn-ghost bg-black max-w-fit justify-self-center mt-2 col-span-4" onClick={toggleInfo}>More Info</button>
           <button id="lessInfoBtn" className="hidden" onClick={toggleInfo}>Less Info</button>
         </div>
-        <div className="bg-gray-400 text-black text-lg font-bold text-center mx-8 mb-8 h-80">Some chart in the future</div>
+        <div className="bg-gray-400 text-black text-lg font-bold text-center mx-8 mb-8 h-80">Chart Data</div>
       </div>
     </div>
   )
